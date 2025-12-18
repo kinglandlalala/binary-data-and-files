@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- TextDecoder and TextEncoder -->
+    <script>
+      let uint8Array = new Uint8Array([72, 101, 108, 108, 111]);
+      console.log(
+        "new TextDecoder().decode(uint8Array): ",
+        new TextDecoder().decode(uint8Array)
+      );
+      let uint8Array2 = new Uint8Array([228, 189, 160, 229, 165, 189]);
+      console.log(
+        "new TextDecoder().decode(uint8Array2): ",
+        new TextDecoder().decode(uint8Array2)
+      );
+      let encoder = new TextEncoder();
+      let uint8Array3 = encoder.encode("Nice to meet you.");
+      console.log("uint8Array3: ", uint8Array3);
+    </script>
+  </body>
+</html>
