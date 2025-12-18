@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- ArrayBuffer, binary arrays -->
+    <script>
+      let buffer = new ArrayBuffer(16);
+      let view = new Uint32Array(buffer);
+      console.log(
+        "Uint32Array.BYTES_PER_ELEMENT: ",
+        Uint32Array.BYTES_PER_ELEMENT
+      );
+      console.log("view.length: ", view.length);
+      console.log("view.byteLength: ", view.byteLength);
+      view[0] = 123456;
+      for (let num of view) {
+        console.log(num);
+      }
+      let arr = new Uint8Array([0, 1, 2, 3]);
+      console.log("arr.length: ", arr.length);
+      console.log("arr[1]: ", arr[1]);
+      let arr2 = new Uint16Array(4);
+      console.log(
+        "Uint16Array.BYTES_PER_ELEMENT: ",
+        Uint16Array.BYTES_PER_ELEMENT
+      );
+      console.log("arr2.byteLength: ", arr2.byteLength);
+      let arr8 = new Uint8Array([0, 1, 2, 3]);
+      let arr16 = new Uint16Array(arr8.buffer);
+      let uint8Array = new Uint8Array(16);
+      let num = 256;
+      console.log("num.toString(2): ", num.toString(2));
+      uint8Array[0] = 256;
+      uint8Array[1] = 257;
+      console.log("uint8Array[0]: ", uint8Array[0]);
+      console.log("uint8Array[1]: ", uint8Array[1]);
+      let buffer2 = new Uint8Array([255, 255, 255, 255]).buffer;
+      let dataView = new DataView(buffer);
+      console.log("dataView.getUint8(0): ", dataView.getUint8(0));
+      console.log("dataView.getUint16(0): ", dataView.getUint16(0));
+      console.log("dataView.getUint32(0): ", dataView.getUint32(0));
+      dataView.setUint32(0, 0);
+    </script>
+  </body>
+</html>
