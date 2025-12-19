@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blob3</title>
+  </head>
+  <body>
+    <script>
+      let img = document.querySelector("img");
+      let canvas = document.createElement("canvas");
+      canvas.width = img.clientWidth;
+      canvas.height = img.clientHeight;
+      let context = canvas.getContext("2d");
+      context.drawImage(img, 0, 0);
+      canvas.toBlob((blob) => {
+        let link3 = document.createElement("a");
+        link3.download = "example.png";
+        link3.href = URL.createObjectURL(blob);
+        link3.click();
+        URL.revokeObjectURL(link3.href);
+      }, "image/png");
+    </script>
+  </body>
+</html>
